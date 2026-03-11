@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 from dataclasses import dataclass
-from enum import Enum
+from enum import IntEnum
 
 #####################################################################################
 ## Code classes
@@ -11,7 +11,7 @@ class AssemblyCode(Code):
 class LabeledAssemblyCode(AssemblyCode):
     pass
 
-class Cond(Enum):
+class Cond(IntEnum):
     EQ = 0
     NE = 1
     CS = 2
