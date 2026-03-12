@@ -37,7 +37,7 @@ class LabelRef(LabeledAssemblyCode):
     label: str
 
 @dataclass
-class Word(Code):
+class Word(AssemblyCode):
     """ Represents a 32-bit word in the final assembled output. """
     value: int # A 32-bit value either from -2^31 to 2^31 - 1 OR 0 to 2^32 -1
 
@@ -54,7 +54,7 @@ class Label(LabeledAssemblyCode):
 @dataclass
 class Add(AssemblyCode):
     """ Represents a ADD Rd, R1, Op2 instruction. Op2 is either a Reg or a Word
-        that can be represented as an rotate of an 8-bit word. 
+        that can be represented as an rotate of an 8-bit word.
 
         Usage: Add(Reg(1), Reg(2), Reg(3))
                Add(Reg(1), Reg(2), Word(15))
