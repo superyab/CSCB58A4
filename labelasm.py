@@ -18,6 +18,10 @@ def assembleCode(code: list[LabeledAssemblyCode], out = sys.stdout.buffer):
     assembleWords(lowerAssemblyCode(newCode), out)
 
 if __name__ == "__main__":
+    if sys.platform == "win32":
+        import os, msvcrt
+        msvcrt.setmode(sys.stdout.fileno(  ), os.O_BINARY)
+
     parser = argparse.ArgumentParser(
                     prog="labelasm",
                     description="Assembles a sequence of LabeledAssemblyCode objects")
